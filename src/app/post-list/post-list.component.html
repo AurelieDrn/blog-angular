@@ -1,15 +1,8 @@
-<li [ngClass]="{'list-group-item': true,
-                'list-group-item-success': postLoveIts > 0,
-                'list-group-item-danger': postLoveIts < 0}">
-    <div class="d-flex w-100 justify-content-between">
-    	<h5 class="mb-1">{{ getTitle() }}</h5>
-      	<small>{{ getDate() | date: 'short' }}</small>
-    </div>
-	<p class="nb-1">{{ getContent() }}</p>
-
-	<button class="btn btn-sm btn-success"
-          (click)="onLoveIt()">Love it!</button>
-	<button class="btn btn-sm btn-danger"
-	      (click)="onDontLoveIt()">Don't love it!</button>
-</li>
-
+<ul class="list-group">
+	<app-post-list-item *ngFor="let post of postsArray"
+						[postTitle]="post.title"
+	                    [postContent]="post.content"
+	                    [postLoveIts]="post.loveIts"
+	                    [postDate]="post.createdAt"
+	                    ></app-post-list-item>
+</ul>
