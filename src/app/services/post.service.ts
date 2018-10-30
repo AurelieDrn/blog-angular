@@ -9,7 +9,7 @@ export class PostService {
 	postsSubject = new Subject<Post[]>();
 
 	constructor() {
-			this.getPosts();
+		this.getPosts();
 	}
 
 	// Initialise le tableau de posts
