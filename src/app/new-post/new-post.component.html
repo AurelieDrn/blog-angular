@@ -5,8 +5,8 @@
       <input type="text" id="titre" class="form-control" formControlName="titre">
     </div>
     <div class="form-group">
-      <label for="contenu">Nom</label>
-      <input type="text" id="contenu" class="form-control" formControlName="contenu">
+      <label for="contenu">Contenu</label>
+      <textarea class="form-control" id="contenu" formControlName="contenu" rows="3"></textarea>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="postForm.invalid">Soumettre</button>
   </form>
