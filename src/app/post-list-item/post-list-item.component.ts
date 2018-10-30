@@ -34,14 +34,14 @@ export class PostListItemComponent implements OnInit {
 
   onLoveIt() {
     this.post.loveIts++;
-    this.postService.savePosts();
-    this.postService.emitPosts();
+    this.postService.updatePost(this.post, this.post.loveIts--);
+    
   }
 
   onDontLoveIt() {
     this.post.loveIts--;
-    this.postService.savePosts();
-    this.postService.emitPosts();
+    this.postService.updatePost(this.post, this.post.loveIts++);
+    
   }
 
   // Supprime un post

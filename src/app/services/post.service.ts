@@ -44,6 +44,20 @@ export class PostService {
   this.emitPosts();
 	}
 
+	// Mets à jour le nombre de loveIts d'un poste
+	updatePost(post: Post, newLoveIts: number) {
+		const postIndexToUpdate = this.posts.findIndex(
+			(postEl) => {
+				if(postEl === post) {
+					return true;
+				}
+			}
+		);
+		this.posts[postIndexToUpdate].loveIts = newLoveIts;
+		this.savePosts();
+		this.emitPosts();
+	}
+
 	emitPosts() {
     this.postsSubject.next(this.posts);
   }
