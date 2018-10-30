@@ -3,7 +3,7 @@
                 'list-group-item-danger': getPostLoveIts() < 0}">
     <div class="d-flex w-100 justify-content-between">
     	<h5 class="mb-1">{{ getTitle() }}</h5>
-      	<small>{{ getDate() | date: 'short' }}</small>
+      	<small>{{ getDate() }}</small>
     </div>
 	<p class="nb-1">{{ getContent() }}</p>
   <p>{{ getPostLoveIts() }}</p>

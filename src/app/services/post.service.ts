@@ -24,6 +24,7 @@ export class PostService {
 
 	// Ajoute un nouveau post
 	createNewPost(newPost: Post) {
+		console.log(newPost);
 		this.posts.push(newPost);
 		this.savePosts();
 		this.emitPosts();

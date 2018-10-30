@@ -35,6 +35,7 @@ export class NewPostComponent implements OnInit {
       formValue['contenu'],
       0
     );
+    console.log(newPost);
     this.postService.createNewPost(newPost);
     this.router.navigate(['/posts']);
   }
