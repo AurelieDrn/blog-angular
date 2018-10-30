@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../models/post.model';
+import { Subscription } from 'rxjs';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-post-list',
@@ -8,10 +10,18 @@ import { Post } from '../models/post.model';
 })
 export class PostListComponent implements OnInit {
 	@Input() postsArray: Post[];
+  postsSubscription: Subscription;
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    // Pour être notifié lorsqu'un post est supprimé dans PostListItem et obtenir la liste de posts
+    this.postsSubscription = this.postService.postsSubject.subscribe(
+      (posts: Post[]) => {
+        this.postsArray = posts;
+      }
+    );
+    this.postService.emitPosts();
   }
 
 }
